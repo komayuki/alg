@@ -37,20 +37,6 @@ data = [
     }
 ]
 
-#breadth first search
-stack = data
-safe = 0
-visited = []
-while stack:
-    print(",".join(str(_['id']) for _ in stack))
-    current = stack[0]
-    visited.append(current)
-    stack.pop(0)
-    if len(current['children']) > 0:
-        stack.extend(current['children'])
-
-print (",".join([str(v['id']) for v in visited]))
-
 #depth first search
 stack = data
 safe = 0
@@ -78,16 +64,3 @@ def dfs(list):
         if len(_['children']) > 0:
             dfs(_['children'])
 dfs (data)
-
-
-# breadth first search
-def bfs (list):
-    stack = []
-    for _ in list:
-        print(str(_['id']) + '->')
-        if len(_['children']) > 0:
-            stack.extend(_['children'])
-
-    if len(stack) > 0:
-        bfs(stack)
-bfs(data)
